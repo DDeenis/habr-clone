@@ -1,16 +1,13 @@
+import { classnames } from "@/helpers/attributes";
+import {
+  ButtonVariant,
+  buttonVariants,
+} from "@/helpers/componentsSettings/button";
 import React from "react";
-import { classnames } from "src/helpers/attributes";
-
-type ButtonVariant = "primary" | "secondary";
 
 interface ButtonProps {
   variant?: ButtonVariant;
 }
-
-const buttonVariants: Record<ButtonVariant, string> = {
-  primary: "bg-slate-100 hover:bg-slate-200 text-emerald-400",
-  secondary: "",
-};
 
 export const Button: React.FC<ButtonProps> = ({ children, variant }) => {
   const classes =
