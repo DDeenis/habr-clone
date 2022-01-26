@@ -25,7 +25,7 @@ export const UserDropdown: React.FC<UserDropdownProps> = ({ user }) => {
             </a>
           </Link>
         </div>
-        <DropdownSeparator />
+        <DropdownSeparator inList={false} />
         <ul>
           <DropdownItem path={`/users/${user.username}/posts`}>
             <a className="block p-4 box-border">Статьи</a>
@@ -105,10 +105,16 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
   );
 };
 
-const DropdownSeparator = () => {
-  return (
+const DropdownSeparator: React.FC<{ inList?: boolean }> = ({
+  inList = true,
+}) => {
+  return inList ? (
     <li className="bg-gray-50 py-2">
       <hr />
     </li>
+  ) : (
+    <div className="bg-gray-50 py-2">
+      <hr />
+    </div>
   );
 };
