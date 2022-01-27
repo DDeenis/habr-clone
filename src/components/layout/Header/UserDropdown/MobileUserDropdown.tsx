@@ -12,7 +12,7 @@ interface MobileUserDropdownProps {
 export const MobileUserDropdown: React.FC<MobileUserDropdownProps> = ({
   user,
 }) => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const openDialog = () => setOpen(true);
   const closeDialog = () => setOpen(false);
@@ -22,7 +22,7 @@ export const MobileUserDropdown: React.FC<MobileUserDropdownProps> = ({
       <Avatar
         image={user.avatar}
         onClick={openDialog}
-        className="block md:hidden"
+        className="block lg:hidden"
       />
       <Transition
         show={open}
@@ -36,10 +36,10 @@ export const MobileUserDropdown: React.FC<MobileUserDropdownProps> = ({
         <Dialog
           open={open}
           onClose={closeDialog}
-          className={classnames(
-            "fixed left-0 right-0 block md:hidden isolate transition-all",
-            { "bottom-0": open, "-bottom-full": !open }
-          )}
+          className={classnames("fixed left-0 right-0 isolate transition-all", {
+            "bottom-0": open,
+            "-bottom-full": !open,
+          })}
         >
           <Dialog.Overlay
             className={classnames(
