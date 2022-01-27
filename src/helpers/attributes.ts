@@ -5,9 +5,11 @@ const getClassFromObject = (val: ConditionalClass) =>
     .map((k) => (val[k] ? k : ""))
     .join(" ");
 
-export const classnames = (...classes: (string | ConditionalClass)[]) => {
+export const classnames = (
+  ...classes: (string | ConditionalClass | undefined)[]
+) => {
   const mappedNames = classes.map((c) =>
-    c instanceof Object ? getClassFromObject(c) : c
+    c instanceof Object ? getClassFromObject(c) : c ? c : ""
   );
   return mappedNames.join(" ");
 };
