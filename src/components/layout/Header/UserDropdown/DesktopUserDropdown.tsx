@@ -12,9 +12,9 @@ export const DesktopUserDropdown: React.FC<DesktopUserDropdownProps> = ({
   user,
 }) => {
   return (
-    <Popover className="relative cursor-auto hidden md:block">
+    <Popover className="relative cursor-auto">
       <Popover.Button>
-        <Avatar image={user.avatar} />
+        <Avatar image={user.avatar} className="hidden lg:block" />
       </Popover.Button>
       <Transition
         enter="transition duration-100 ease-out"
