@@ -10,7 +10,7 @@ export interface ArticleImage {
   caption?: string;
 }
 
-export interface Article {
+export interface ArticleType {
   title: string;
   tags: ArticleTag[];
   cut: string;

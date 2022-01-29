@@ -1,5 +1,5 @@
 import faker from "@faker-js/faker";
-import { Article, ArticleTag } from "src/types/articles";
+import { ArticleType, ArticleTag } from "src/types/articles";
 import { createUser } from "./user";
 
 interface UseArticlesOptions {
@@ -7,15 +7,26 @@ interface UseArticlesOptions {
   pageSize?: number;
 }
 
-export const useArticles = (options?: UseArticlesOptions): Article[] => {
-  const pageSize = options?.pageSize ?? 10;
+const articles = new Map<number, ArticleType[]>();
 
-  return Array(pageSize)
+export const useArticles = (options?: UseArticlesOptions): ArticleType[] => {
+  const pageSize = options?.pageSize ?? 10;
+  const page = options?.page ? (options.page > 0 ? options.page : 1) : 1;
+  const savedArticles = articles.get(page);
+
+  if (savedArticles) {
+    return savedArticles;
+  }
+
+  const newArticles = Array(pageSize)
     .fill(0)
     .map(() => createArticle());
+  articles.set(page, newArticles);
+
+  return newArticles;
 };
 
-const createArticle = (): Article => {
+const createArticle = (): ArticleType => {
   const rate = faker.datatype.number({ min: -50, max: 100 });
   const viwes = faker.datatype.number({ min: 0, max: 5000 });
 
