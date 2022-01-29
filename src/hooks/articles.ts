@@ -1,4 +1,5 @@
 import faker from "@faker-js/faker";
+import { useState } from "react";
 import { ArticleType, ArticleTag } from "src/types/articles";
 import { createUser } from "./user";
 
@@ -8,6 +9,23 @@ interface UseArticlesOptions {
 }
 
 const articles = new Map<number, ArticleType[]>();
+
+// export const useArticles = (options?: UseArticlesOptions): ArticleType[] => {
+//   const pageSize = options?.pageSize ?? 10;
+//   const page = options?.page ? (options.page > 0 ? options.page : 1) : 1;
+//   const savedArticles = articles.get(page);
+
+//   if (savedArticles) {
+//     return savedArticles;
+//   }
+
+//   const newArticles = Array(pageSize)
+//     .fill(0)
+//     .map(() => createArticle());
+//   articles.set(page, newArticles);
+
+//   return newArticles;
+// };
 
 export const useArticles = (options?: UseArticlesOptions): ArticleType[] => {
   const pageSize = options?.pageSize ?? 10;

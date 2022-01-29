@@ -1,6 +1,12 @@
 import { useArticles } from "@/hooks/articles";
+import dynamic from "next/dynamic";
 import React from "react";
-import { ArticlePreview } from "./ArticlePreview";
+
+const ArticlePreview = dynamic(
+  // @ts-ignore
+  () => import("./ArticlePreview").then((i) => i.ArticlePreview),
+  { ssr: false }
+);
 
 export const ArticlesPreviewPage = () => {
   const articles = useArticles();
