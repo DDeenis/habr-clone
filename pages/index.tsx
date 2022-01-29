@@ -1,9 +1,12 @@
 import { Button } from "@/components/common/Button";
 import { Header } from "@/components/layout/Header/Header";
+import { useArticles } from "@/hooks/articles";
 import type { NextPage } from "next";
 import Head from "next/head";
 
 const Home: NextPage = () => {
+  const articles = useArticles();
+  console.log(articles);
   return (
     <div>
       <Head>

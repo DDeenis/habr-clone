@@ -27,6 +27,7 @@ export const Avatar: React.FC<AvatarProps> = ({
         className="object-cover"
         width={32}
         height={32}
+        unoptimized
       />
     </div>
   );
