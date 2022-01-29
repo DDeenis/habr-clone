@@ -1,9 +1,10 @@
 type ConditionalClass = Record<string, any>;
 
-const getClassFromObject = (val: ConditionalClass) =>
-  Object.keys(val)
-    .map((k) => (val[k] ? k : ""))
+const getClassFromObject = (val: ConditionalClass) => {
+  return Object.keys(val)
+    .map((k) => (Boolean(val[k]) ? k : ""))
     .join(" ");
+};
 
 export const classnames = (
   ...classes: (string | ConditionalClass | undefined)[]

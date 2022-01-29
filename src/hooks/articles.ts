@@ -26,14 +26,22 @@ export const useArticles = (options?: UseArticlesOptions): ArticleType[] => {
   return newArticles;
 };
 
+const capitalize = (source: string) =>
+  source[0].toUpperCase() + source.substring(1);
+
 const createArticle = (): ArticleType => {
   const rate = faker.datatype.number({ min: -50, max: 100 });
   const viwes = faker.datatype.number({ min: 0, max: 5000 });
+  const title = faker.hacker.phrase();
 
   return {
-    title: faker.hacker.phrase(),
+    id: faker.datatype.number({ min: 1000, max: 100000 }),
+    title: capitalize(title),
     cut: faker.lorem.paragraph(10),
-    coverImage: faker.image.abstract(),
+    coverImage: {
+      url: faker.image.technics(),
+      caption: faker.lorem.sentence(),
+    },
     tags: generateTags(),
     author: createUser(),
     buttonText: faker.word.verb(),
@@ -52,7 +60,7 @@ const generateTags = (count: number = 3): ArticleTag[] => {
   return Array(count)
     .fill(0)
     .map(() => ({
-      label: faker.word.noun(),
+      label: capitalize(faker.word.noun()),
       path: faker.internet.url(),
     }));
 };

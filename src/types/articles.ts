@@ -11,6 +11,7 @@ export interface ArticleImage {
 }
 
 export interface ArticleType {
+  id: number;
   title: string;
   tags: ArticleTag[];
   cut: string;
@@ -22,5 +23,5 @@ export interface ArticleType {
   // Comment[]
   comments: number;
   buttonText?: string;
-  coverImage?: string;
+  coverImage?: ArticleImage;
 }
