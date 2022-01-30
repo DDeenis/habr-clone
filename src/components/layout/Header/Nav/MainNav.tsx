@@ -7,7 +7,7 @@ export const MainNav = () => {
   return (
     <div className="flex content-center items-center">
       <nav className="w-full max-w-3xl hidden lg:block" aria-label="primary">
-        <ul className="flex justify-between content-center items-center flex-wrap gap-5">
+        <ul className="flex justify-between content-center items-center flex-wrap xl:gap-5 lg:gap-1">
           {navItems.map((i) => (
             <NavItem key={i.path} {...i} />
           ))}

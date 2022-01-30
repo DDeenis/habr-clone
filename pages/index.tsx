@@ -1,4 +1,5 @@
 import { ArticlesPreviewPage } from "@/components/Article/ArticlesPreviewPage";
+import { PopularBlogs } from "@/components/Blogs/PopularBlogs";
 import { Header } from "@/components/layout/Header/Header";
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -12,7 +13,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <ArticlesPreviewPage />
+      <div className="flex gap-4 justify-between items-start mx-auto px-3 p-offset py-4 w-full">
+        <ArticlesPreviewPage />
+        <PopularBlogs />
+      </div>
     </div>
   );
 };

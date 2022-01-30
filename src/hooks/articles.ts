@@ -1,3 +1,4 @@
+import { capitalize } from "@/helpers/stringUtils";
 import faker from "@faker-js/faker";
 import { useState } from "react";
 import { ArticleType, ArticleTag } from "src/types/articles";
@@ -6,31 +7,22 @@ import { createUser } from "./user";
 interface UseArticlesOptions {
   page?: number;
   pageSize?: number;
+  _unpaged?: boolean;
 }
 
 const articles = new Map<number, ArticleType[]>();
-
-// export const useArticles = (options?: UseArticlesOptions): ArticleType[] => {
-//   const pageSize = options?.pageSize ?? 10;
-//   const page = options?.page ? (options.page > 0 ? options.page : 1) : 1;
-//   const savedArticles = articles.get(page);
-
-//   if (savedArticles) {
-//     return savedArticles;
-//   }
-
-//   const newArticles = Array(pageSize)
-//     .fill(0)
-//     .map(() => createArticle());
-//   articles.set(page, newArticles);
-
-//   return newArticles;
-// };
 
 export const useArticles = (options?: UseArticlesOptions): ArticleType[] => {
   const pageSize = options?.pageSize ?? 10;
   const page = options?.page ? (options.page > 0 ? options.page : 1) : 1;
   const savedArticles = articles.get(page);
+
+  if (options?._unpaged) {
+    const newArticles = Array(pageSize)
+      .fill(0)
+      .map(() => createArticle());
+    return newArticles;
+  }
 
   if (savedArticles) {
     return savedArticles;
@@ -43,9 +35,6 @@ export const useArticles = (options?: UseArticlesOptions): ArticleType[] => {
 
   return newArticles;
 };
-
-const capitalize = (source: string) =>
-  source[0].toUpperCase() + source.substring(1);
 
 const createArticle = (): ArticleType => {
   const rate = faker.datatype.number({ min: -50, max: 100 });
@@ -62,7 +51,7 @@ const createArticle = (): ArticleType => {
     },
     tags: generateTags(),
     author: createUser(),
-    buttonText: faker.word.verb(),
+    buttonText: capitalize(faker.word.verb()),
     publishedAt: faker.date.past(),
     rate,
     views: viwes,

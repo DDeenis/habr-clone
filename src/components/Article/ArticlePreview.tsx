@@ -12,7 +12,7 @@ interface ArticlePreviewProps {
 
 export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ article }) => {
   return (
-    <article className="w-full max-w-6xl bg-white mx-auto rounded-md box-border py-4 px-5 flex flex-col gap-3">
+    <article className="w-full bg-white mx-auto rounded-md box-border py-4 px-5 flex flex-col gap-3">
       <h1>
         <Link href={`/posts/${article.id}`} passHref>
           <a className="font-semibold font-sans text-xl hover:text-blue-400 transition-colors">
@@ -40,7 +40,7 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ article }) => {
           </figcaption>
         </figure>
       )}
-      <p className="text-base">{article.cut}</p>
+      <p className="text-base hidden lg:block">{article.cut}</p>
       <button className="max-w-[110px] border-[1px] border-blue-400 box-border rounded-sm p-2 text-blue-400 text-sm hover:text-white hover:bg-blue-400 transition-colors duration-500 my-3">
         {article.buttonText ?? "Читать далее"}
       </button>
