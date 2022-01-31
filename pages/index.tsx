@@ -1,10 +1,17 @@
 import { ArticlesPreviewPage } from "@/components/Article/ArticlesPreviewPage";
 import { PopularBlogs } from "@/components/Blogs/PopularBlogs";
 import { Header } from "@/components/layout/Header/Header";
-import type { NextPage } from "next";
+import { useArticles as getArticles } from "@/hooks/articles";
+import { useBestBlogs } from "@/hooks/blogs";
+import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
+import { ArticleType } from "src/types/articles";
+import { BlogType } from "src/types/blogs";
 
-const Home: NextPage = () => {
+const Home: NextPage<{ articles: ArticleType[]; blogs: BlogType[] }> = ({
+  articles,
+}) => {
+  const blogs = useBestBlogs();
   return (
     <div className="bg-gray-100 min-h-screen">
       <Head>
@@ -14,11 +21,21 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <div className="flex gap-4 justify-between items-start mx-auto px-3 p-offset py-4 w-full">
-        <ArticlesPreviewPage />
-        <PopularBlogs />
+        <ArticlesPreviewPage articles={articles} />
+        <PopularBlogs blogs={blogs} />
       </div>
     </div>
   );
 };
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const articles = getArticles();
+
+  return {
+    props: {
+      articles,
+    },
+  };
+};

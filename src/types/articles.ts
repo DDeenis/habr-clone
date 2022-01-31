@@ -16,7 +16,7 @@ export interface ArticleType {
   tags: ArticleTag[];
   cut: string;
   author: User;
-  publishedAt: Date;
+  publishedAt: string;
   rate: number;
   views: number;
   marks: number;

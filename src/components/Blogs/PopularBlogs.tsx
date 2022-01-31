@@ -1,10 +1,9 @@
-import { useBestBlogs } from "@/hooks/blogs";
+import Link from "next/link";
 import React from "react";
+import { BlogType } from "src/types/blogs";
 import { Avatar } from "../common/Avatar";
 
-export const PopularBlogs = () => {
-  const blogs = useBestBlogs();
-
+export const PopularBlogs: React.FC<{ blogs: BlogType[] }> = ({ blogs }) => {
   return (
     <ul className="hidden lg:flex flex-col gap-4 bg-white p-4 box-border h-max w-full lg:max-w-sm">
       <li>
@@ -15,11 +14,19 @@ export const PopularBlogs = () => {
       </li>
       {blogs.map((b) => (
         <li key={b.name} className="flex justify-center items-center">
-          <Avatar image={b.avatar} />
+          <Link href={`/company/${b.alias}`} passHref>
+            <a>
+              <Avatar image={b.avatar} />
+            </a>
+          </Link>
           <div className="flex w-full justify-between items-center pl-2">
-            <strong className="text-base font-semibold whitespace-nowrap overflow-hidden text-ellipsis max-w-[70%]">
-              {b.name}
-            </strong>
+            <Link href={`/company/${b.alias}`} passHref>
+              <a>
+                <strong className="text-base font-semibold whitespace-nowrap overflow-hidden text-ellipsis max-w-[70%]">
+                  {b.name}
+                </strong>
+              </a>
+            </Link>
             <span className="text-base font-semibold text-purple-500">
               {b.rate}
             </span>

@@ -1,6 +1,5 @@
 import { capitalize } from "@/helpers/stringUtils";
 import faker from "@faker-js/faker";
-import { useState } from "react";
 import { ArticleType, ArticleTag } from "src/types/articles";
 import { createUser } from "./user";
 
@@ -52,7 +51,7 @@ const createArticle = (): ArticleType => {
     tags: generateTags(),
     author: createUser(),
     buttonText: capitalize(faker.word.verb()),
-    publishedAt: faker.date.past(),
+    publishedAt: faker.date.past().toISOString(),
     rate,
     views: viwes,
     marks: faker.datatype.number({ min: 0, max: Math.abs(rate) }),
