@@ -33,6 +33,14 @@ export const PopularBlogs: React.FC<{ blogs: BlogType[] }> = ({ blogs }) => {
           </div>
         </li>
       ))}
+      <li>
+        <hr />
+      </li>
+      <li>
+        <Link href={"companies"} passHref>
+          <a className="font-medium text-blue-400 text-sm">Все компании</a>
+        </Link>
+      </li>
     </ul>
   );
 };
