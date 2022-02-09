@@ -20,7 +20,7 @@ const Home: NextPage<{ articles: ArticleType[]; blogs: BlogType[] }> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <div className="flex gap-4 justify-between items-start mx-auto px-3 p-offset py-4 w-full">
+      <div className="flex gap-4 justify-between items-start mx-auto px-3 py-4 xl:px-0 w-full max-w-[1096px]">
         <ArticlesPreviewPage articles={articles} />
         <PopularBlogs blogs={blogs} />
       </div>

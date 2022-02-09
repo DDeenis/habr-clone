@@ -1,10 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { ArticleType } from "src/types/articles";
 import { ArticleTags } from "./ArticleTags";
 import { FaChartBar, FaEye, FaBookmark, FaCommentAlt } from "react-icons/fa";
 import { classnames } from "@/helpers/attributes";
+import { CoverImage } from "./components/CoverImage";
 
 interface ArticlePreviewProps {
   article: ArticleType;
@@ -21,25 +21,7 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ article }) => {
         </Link>
       </h1>
       <ArticleTags tags={article.tags} />
-      {article.coverImage && (
-        <figure className="hidden lg:block">
-          <Link href={`/posts/${article.id}`} passHref>
-            <a>
-              <Image
-                src={article.coverImage.url}
-                alt={article.coverImage.caption}
-                className="object-cover cursor-pointer"
-                width={750}
-                height={420}
-                unoptimized
-              />
-            </a>
-          </Link>
-          <figcaption className="text-sm text-gray-400 italic">
-            {article.coverImage.caption}
-          </figcaption>
-        </figure>
-      )}
+      <CoverImage img={article.coverImage} href={`/posts/${article.id}`} />
       <p className="text-base hidden lg:block">{article.cut}</p>
       <button className="max-w-[110px] border-[1px] border-blue-400 box-border rounded-sm p-2 text-blue-400 text-sm hover:text-white hover:bg-blue-400 transition-colors duration-500 my-3 hidden lg:block">
         {article.buttonText ?? "Читать далее"}
