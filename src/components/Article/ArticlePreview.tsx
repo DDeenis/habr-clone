@@ -1,62 +1,37 @@
-import Link from "next/link";
 import React from "react";
 import { ArticleType } from "src/types/articles";
 import { ArticleTags } from "./ArticleTags";
-import { FaChartBar, FaEye, FaBookmark, FaCommentAlt } from "react-icons/fa";
-import { classnames } from "@/helpers/attributes";
 import { CoverImage } from "./components/CoverImage";
+import { ArticlePreviewTitle } from "./components/ArticlePreviewTitle";
+import { ArticleReadButton } from "./components/ArticleReadButton";
+import { ArticleStats } from "./components/ArticleStats";
 
 interface ArticlePreviewProps {
   article: ArticleType;
 }
 
 export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ article }) => {
+  const articleLink = `/posts/${article.id}`;
+  const commentsLink = articleLink + "/comments";
+
   return (
     <article className="w-full bg-white mx-auto rounded-md box-border py-4 px-5 flex flex-col gap-3">
-      <h1>
-        <Link href={`/posts/${article.id}`} passHref>
-          <a className="font-semibold font-sans text-xl hover:text-blue-400 transition-colors">
-            {article.title}
-          </a>
-        </Link>
-      </h1>
+      <ArticlePreviewTitle href={articleLink}>
+        {article.title}
+      </ArticlePreviewTitle>
       <ArticleTags tags={article.tags} />
-      <CoverImage img={article.coverImage} href={`/posts/${article.id}`} />
+      <CoverImage img={article.coverImage} href={articleLink} />
       <p className="text-base hidden lg:block">{article.cut}</p>
-      <button className="max-w-[110px] border-[1px] border-blue-400 box-border rounded-sm p-2 text-blue-400 text-sm hover:text-white hover:bg-blue-400 transition-colors duration-500 my-3 hidden lg:block">
-        {article.buttonText ?? "Читать далее"}
-      </button>
-      <ul className="flex gap-5 justify-between md:justify-start">
-        <li className="flex gap-2 content-center items-center">
-          <FaChartBar className="w-4 h-4 fill-gray-400" />
-          <span
-            className={classnames("text-sm", {
-              "text-green-400": article.rate > 0,
-              "text-red-600": article.rate < 0,
-              "text-gray-400": article.rate === 0,
-            })}
-          >
-            {article.rate > 0 && "+"}
-            {article.rate}
-          </span>
-        </li>
-        <li className="flex gap-2 content-center items-center">
-          <FaEye className="w-4 h-4 fill-gray-400" />
-          <span className="text-sm text-gray-400">{article.views}</span>
-        </li>
-        <li className="flex gap-2 content-center items-center cursor-pointer">
-          <FaBookmark className="w-4 h-4 fill-gray-400" />
-          <span className="text-sm text-gray-400">{article.marks}</span>
-        </li>
-        <li className="cursor-pointer">
-          <Link href={`/post/${article.id}/comments`} passHref>
-            <a className="flex gap-2 content-center items-center">
-              <FaCommentAlt className="w-4 h-4 fill-gray-400" />
-              <span className="text-sm text-gray-400">{article.comments}</span>
-            </a>
-          </Link>
-        </li>
-      </ul>
+      <ArticleReadButton href={articleLink}>
+        {article.buttonText}
+      </ArticleReadButton>
+      <ArticleStats
+        commentsHref={commentsLink}
+        rate={article.rate}
+        views={article.views}
+        marks={article.marks}
+        comments={article.comments}
+      />
     </article>
   );
 };
