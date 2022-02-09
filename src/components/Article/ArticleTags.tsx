@@ -8,7 +8,7 @@ interface ArticleTagsProps {
 
 export const ArticleTags: React.FC<ArticleTagsProps> = ({ tags }) => {
   return (
-    <ul className="flex gap-2">
+    <ul className="gap-2 hidden md:flex">
       {tags.map((t) => (
         <li key={t.label} className="cursor-pointer">
           <Link href={t.path} passHref>

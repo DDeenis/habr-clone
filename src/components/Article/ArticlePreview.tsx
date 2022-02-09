@@ -41,10 +41,10 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ article }) => {
         </figure>
       )}
       <p className="text-base hidden lg:block">{article.cut}</p>
-      <button className="max-w-[110px] border-[1px] border-blue-400 box-border rounded-sm p-2 text-blue-400 text-sm hover:text-white hover:bg-blue-400 transition-colors duration-500 my-3">
+      <button className="max-w-[110px] border-[1px] border-blue-400 box-border rounded-sm p-2 text-blue-400 text-sm hover:text-white hover:bg-blue-400 transition-colors duration-500 my-3 hidden lg:block">
         {article.buttonText ?? "Читать далее"}
       </button>
-      <ul className="flex gap-5">
+      <ul className="flex gap-5 justify-between md:justify-start">
         <li className="flex gap-2 content-center items-center">
           <FaChartBar className="w-4 h-4 fill-gray-400" />
           <span
