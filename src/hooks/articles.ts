@@ -45,7 +45,7 @@ const createArticle = (): ArticleType => {
     title: capitalize(title),
     cut: faker.lorem.paragraph(10),
     coverImage: {
-      url: faker.image.technics(),
+      url: faker.image.cats(),
       caption: faker.lorem.sentence(),
     },
     tags: generateTags(),

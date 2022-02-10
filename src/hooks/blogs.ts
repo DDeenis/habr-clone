@@ -1,9 +1,9 @@
 import faker from "@faker-js/faker";
 import { useState } from "react";
-import { BlogType } from "src/types/blogs";
+import { BlogMinInfo } from "src/types/blogs";
 
-export const useBestBlogs = (): BlogType[] => {
-  const [blogs, setBlogs] = useState<BlogType[]>([]);
+export const useBestBlogs = (): BlogMinInfo[] => {
+  const [blogs, setBlogs] = useState<BlogMinInfo[]>([]);
 
   if (!blogs.length) {
     const newBlogs = Array(10)
@@ -16,7 +16,7 @@ export const useBestBlogs = (): BlogType[] => {
   return blogs;
 };
 
-const createBlog = (): BlogType => {
+const createBlog = (): BlogMinInfo => {
   const name = faker.company.companyName();
 
   return {

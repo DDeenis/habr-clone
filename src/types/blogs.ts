@@ -1,4 +1,4 @@
-export interface BlogType {
+export interface BlogMinInfo {
   name: string;
   alias: string;
   avatar: string;

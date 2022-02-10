@@ -6,11 +6,8 @@ import { useBestBlogs } from "@/hooks/blogs";
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import { ArticleType } from "src/types/articles";
-import { BlogType } from "src/types/blogs";
 
-const Home: NextPage<{ articles: ArticleType[]; blogs: BlogType[] }> = ({
-  articles,
-}) => {
+const Home: NextPage<{ articles: ArticleType[] }> = ({ articles }) => {
   const blogs = useBestBlogs();
   return (
     <div className="bg-gray-100 min-h-screen">

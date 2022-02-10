@@ -1,6 +1,15 @@
+import dynamic from "next/dynamic";
 import React from "react";
 import { ArticleType } from "src/types/articles";
-import { ArticlePreview } from "./ArticlePreview";
+// import { ArticlePreview } from "./ArticlePreview";
+
+const ArticlePreview = dynamic(
+  // @ts-ignore
+  () => import("./ArticlePreview").then((imp) => imp.ArticlePreview),
+  {
+    ssr: false,
+  }
+);
 
 export const ArticlesPreviewPage: React.FC<{ articles: ArticleType[] }> = ({
   articles,
