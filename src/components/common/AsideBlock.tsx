@@ -16,7 +16,9 @@ AsideBlock.Element = ({ children }: React.PropsWithChildren<{}>) => (
 
 AsideBlock.Title = ({ children }: React.PropsWithChildren<{}>) => (
   <AsideBlock.Element>
-    <span className="font-medium text-gray-500">{children}</span>
+    <span className="font-medium text-gray-500 uppercase text-sm">
+      {children}
+    </span>
   </AsideBlock.Element>
 );
 
