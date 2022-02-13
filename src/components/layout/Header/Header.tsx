@@ -1,5 +1,4 @@
 import { useUser } from "@/hooks/user";
-import React from "react";
 import { MainNav } from "./Nav/MainNav";
 import { UserBar } from "./UserBar";
 

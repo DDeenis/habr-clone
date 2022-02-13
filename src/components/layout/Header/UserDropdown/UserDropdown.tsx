@@ -1,5 +1,5 @@
 import React from "react";
-import { User } from "src/types/user";
+import { User } from "@/types/user";
 import { DesktopUserDropdown } from "./DesktopUserDropdown";
 import { MobileUserDropdown } from "./MobileUserDropdown";
 

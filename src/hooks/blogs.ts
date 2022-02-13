@@ -1,6 +1,6 @@
 import faker from "@faker-js/faker";
 import { useState } from "react";
-import { BlogMinInfo } from "src/types/blogs";
+import { BlogMinInfo } from "../types/blogs";
 
 export const useBestBlogs = (): BlogMinInfo[] => {
   const [blogs, setBlogs] = useState<BlogMinInfo[]>([]);

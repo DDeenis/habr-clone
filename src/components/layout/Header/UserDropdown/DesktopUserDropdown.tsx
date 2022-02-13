@@ -1,7 +1,7 @@
 import { Avatar } from "@/components/common/Avatar";
 import { Popover, Transition } from "@headlessui/react";
 import React from "react";
-import { User } from "src/types/user";
+import { User } from "@/types/user";
 import { UserDropdownContent } from "./UserDropdownContent";
 
 interface DesktopUserDropdownProps {

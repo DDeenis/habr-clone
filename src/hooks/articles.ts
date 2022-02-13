@@ -1,6 +1,6 @@
-import { capitalize } from "@/helpers/stringUtils";
+import { capitalize } from "../helpers/stringUtils";
 import faker from "@faker-js/faker";
-import { ArticleType, ArticleTag } from "src/types/articles";
+import { ArticleType, ArticleTag } from "../types/articles";
 import { createUser } from "./user";
 
 interface UseArticlesOptions {

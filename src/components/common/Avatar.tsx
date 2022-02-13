@@ -1,5 +1,4 @@
 import { classnames } from "@/helpers/attributes";
-import Image from "next/image";
 import React from "react";
 
 interface AvatarProps {
@@ -21,14 +20,7 @@ export const Avatar: React.FC<AvatarProps> = ({
       )}
       onClick={onClick}
     >
-      <Image
-        src={image}
-        alt="avatar"
-        className="object-cover"
-        width={32}
-        height={32}
-        unoptimized
-      />
+      <img src={image} alt="avatar" className="object-cover w-full h-full" />
     </div>
   );
 };

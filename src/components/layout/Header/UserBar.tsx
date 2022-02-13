@@ -1,7 +1,6 @@
-import Link from "next/link";
 import React from "react";
 import { FaSearch, FaBell, FaPencilAlt } from "react-icons/fa";
-import { User } from "src/types/user";
+import { User } from "@/types/user";
 import { UserDropdown } from "./UserDropdown/UserDropdown";
 
 interface UserBarProps {
@@ -35,13 +34,7 @@ interface UserBarIconProps {
 export const UserBarIcon: React.FC<UserBarIconProps> = ({ icon, path }) => {
   return (
     <li className="flex content-center items-center">
-      {path ? (
-        <Link href={path} passHref>
-          <a>{icon}</a>
-        </Link>
-      ) : (
-        icon
-      )}
+      {path ? <a href={path}>{icon}</a> : icon}
     </li>
   );
 };

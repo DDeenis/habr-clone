@@ -1,5 +1,5 @@
 import React from "react";
-import { ArticleType } from "src/types/articles";
+import { ArticleType } from "@/types/articles";
 import { ArticleTags } from "./ArticleTags";
 import { CoverImage } from "./components/CoverImage";
 import { ArticlePreviewTitle } from "./components/ArticlePreviewTitle";

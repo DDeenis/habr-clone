@@ -1,7 +1,7 @@
 import { Avatar } from "@/components/common/Avatar";
 import { MobileBottomModal } from "@/components/common/MobileBottomModal";
 import React, { useState } from "react";
-import { User } from "src/types/user";
+import { User } from "@/types/user";
 import { UserDropdownContent } from "./UserDropdownContent";
 
 interface MobileUserDropdownProps {

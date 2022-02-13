@@ -1,6 +1,6 @@
 import { MobileBottomModal } from "@/components/common/MobileBottomModal";
 import { navItems } from "@/helpers/componentsSettings/header";
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import {
   DropdownItem,

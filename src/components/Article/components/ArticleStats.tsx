@@ -1,6 +1,4 @@
 import { classnames } from "@/helpers/attributes";
-import Link from "next/link";
-import React from "react";
 import { FaBookmark, FaChartBar, FaCommentAlt, FaEye } from "react-icons/fa";
 
 interface ArticleStatsProps {
@@ -42,12 +40,13 @@ export const ArticleStats = ({
         <span className="text-sm text-gray-400">{marks}</span>
       </li>
       <li className="cursor-pointer">
-        <Link href={commentsHref} passHref>
-          <a className="flex gap-2 content-center items-center">
-            <FaCommentAlt className="w-4 h-4 fill-gray-400" />
-            <span className="text-sm text-gray-400">{comments}</span>
-          </a>
-        </Link>
+        <a
+          href={commentsHref}
+          className="flex gap-2 content-center items-center"
+        >
+          <FaCommentAlt className="w-4 h-4 fill-gray-400" />
+          <span className="text-sm text-gray-400">{comments}</span>
+        </a>
       </li>
     </ul>
   );

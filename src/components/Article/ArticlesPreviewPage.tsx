@@ -1,5 +1,5 @@
 import React from "react";
-import { ArticleType } from "src/types/articles";
+import { ArticleType } from "@/types/articles";
 import { ArticlePreview } from "./ArticlePreview";
 
 export const ArticlesPreviewPage: React.FC<{ articles: ArticleType[] }> = ({

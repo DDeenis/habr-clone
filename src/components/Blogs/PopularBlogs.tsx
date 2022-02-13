@@ -1,15 +1,7 @@
-import dynamic from "next/dynamic";
-import Link from "next/link";
 import React from "react";
-import { BlogMinInfo } from "src/types/blogs";
+import { BlogMinInfo } from "@/types/blogs";
 import { AsideBlock } from "../common/AsideBlock";
-// import { BlogLabel } from "./BlogLabel";
-
-const BlogLabel = dynamic(
-  // @ts-ignore
-  () => import("./BlogLabel").then((imp) => imp.BlogLabel),
-  { ssr: false }
-);
+import { BlogLabel } from "./BlogLabel";
 
 export const PopularBlogs: React.FC<{ blogs: BlogMinInfo[] }> = ({ blogs }) => {
   return (
@@ -23,9 +15,9 @@ export const PopularBlogs: React.FC<{ blogs: BlogMinInfo[] }> = ({ blogs }) => {
       ))}
       <AsideBlock.Separator />
       <AsideBlock.Element>
-        <Link href={"companies"} passHref>
-          <a className="font-medium text-blue-400 text-sm">Все компании</a>
-        </Link>
+        <a href={"/companies"} className="font-medium text-blue-400 text-sm">
+          Все компании
+        </a>
       </AsideBlock.Element>
     </AsideBlock>
   );

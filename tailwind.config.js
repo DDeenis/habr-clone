@@ -1,12 +1,10 @@
 module.exports = {
-  mode: "jit",
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}",
-    "./src/helpers/componentsSettings/*.ts",
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/aspect-ratio"),
+    require("@tailwindcss/typography"),
+  ],
 };

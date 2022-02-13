@@ -1,8 +1,7 @@
 import { Avatar } from "@/components/common/Avatar";
-import Link from "next/link";
 import React from "react";
 import { FaClipboardList, FaCog, FaSignOutAlt } from "react-icons/fa";
-import { User } from "src/types/user";
+import { User } from "@/types/user";
 import { DropdownItem, DropdownSeparator } from "./dropdownComponents";
 
 interface UserDropdownContentProps {
@@ -15,46 +14,47 @@ export const UserDropdownContent: React.FC<UserDropdownContentProps> = ({
   return (
     <>
       <div className="p-4 box-border bg-gray-50">
-        <Link href={`/users/${user.username}`} passHref>
-          <a className="flex gap-3 items-center w-max">
-            <Avatar image={user.avatar} />
-            <span className="text-blue-400">@{user.username}</span>
-          </a>
-        </Link>
+        <a
+          href={`/users/${user.username}`}
+          className="flex gap-3 items-center w-max"
+        >
+          <Avatar image={user.avatar} />
+          <span className="text-blue-400">@{user.username}</span>
+        </a>
       </div>
       <DropdownSeparator inList={false} />
       <ul>
         <DropdownItem path={`/users/${user.username}/posts`}>
-          <a className="block p-4 box-border">Статьи</a>
+          <span className="block p-4 box-border">Статьи</span>
         </DropdownItem>
         <DropdownItem path={`/users/${user.username}/comments`}>
-          <a className="block p-4 box-border">Комментарии</a>
+          <span className="block p-4 box-border">Комментарии</span>
         </DropdownItem>
         <DropdownItem path="/conversations">
-          <a className="block p-4 box-border">Диалоги</a>
+          <span className="block p-4 box-border">Диалоги</span>
         </DropdownItem>
         <DropdownItem path={`/users/${user.username}/favorites/posts`}>
-          <a className="block p-4 box-border">Закладки</a>
+          <span className="block p-4 box-border">Закладки</span>
         </DropdownItem>
         <DropdownItem path="/ppa/about">
-          <a className="block p-4 box-border">ППА</a>
+          <span className="block p-4 box-border">ППА</span>
         </DropdownItem>
         <DropdownItem path="/beta">
-          <a className="block p-4 box-border">Бета-тестирование</a>
+          <span className="block p-4 box-border">Бета-тестирование</span>
         </DropdownItem>
         <DropdownSeparator />
         <DropdownItem path="/sandbox/start">
-          <a className="block p-4 box-border">Как стать автором</a>
+          <span className="block p-4 box-border">Как стать автором</span>
         </DropdownItem>
         <DropdownItem path="/docs/help/rules">
-          <a className="block p-4 box-border">Правила сайта</a>
+          <span className="block p-4 box-border">Правила сайта</span>
         </DropdownItem>
         <DropdownSeparator />
         <DropdownItem path="/auth/settings/profile" type="secondary">
-          <a className="px-4 py-3 box-border flex gap-3 items-center">
+          <span className="px-4 py-3 box-border flex gap-3 items-center">
             <FaCog className="fill-gray-400 w-5 h-5" />
             <span className="text-gray-400">Настройки профиля</span>
-          </a>
+          </span>
         </DropdownItem>
         <DropdownItem type="secondary">
           <span className="px-4 py-3 box-border flex gap-3 items-center cursor-pointer">
@@ -63,10 +63,10 @@ export const UserDropdownContent: React.FC<UserDropdownContentProps> = ({
           </span>
         </DropdownItem>
         <DropdownItem path="/logout" type="secondary">
-          <a className="px-4 py-3 box-border flex gap-3 items-center">
+          <span className="px-4 py-3 box-border flex gap-3 items-center">
             <FaSignOutAlt className="fill-gray-400 w-5 h-5" />
             <span className="text-gray-400">Выход</span>
-          </a>
+          </span>
         </DropdownItem>
       </ul>
     </>

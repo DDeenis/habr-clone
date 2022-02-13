@@ -1,5 +1,4 @@
 import { classnames } from "@/helpers/attributes";
-import Link from "next/link";
 
 interface DropdownItemProps {
   path?: string;
@@ -18,13 +17,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         { "text-gray-700": type !== "secondary" }
       )}
     >
-      {path ? (
-        <Link href={path} passHref>
-          {children}
-        </Link>
-      ) : (
-        children
-      )}
+      {path ? <a href={path}>{children}</a> : children}
     </li>
   );
 };

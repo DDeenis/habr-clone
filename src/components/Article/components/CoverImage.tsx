@@ -1,7 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import { ArticleImage } from "src/types/articles";
+import { ArticleImage } from "@/types/articles";
 
 interface CoverImageProps {
   img?: ArticleImage;
@@ -12,26 +9,20 @@ export const CoverImage = ({ img, href }: CoverImageProps) => {
   return img ? (
     <figure className="hidden lg:block">
       {href ? (
-        <Link href={href} passHref>
-          <a>
-            <Image
-              src={img.url}
-              alt={img.caption}
-              className="object-cover cursor-pointer"
-              width={750}
-              height={420}
-              unoptimized
-            />
-          </a>
-        </Link>
+        <a href={href}>
+          <img
+            src={img.url}
+            alt={img.caption}
+            className="object-cover cursor-pointer w-[750px] h-[420px]"
+          />
+        </a>
       ) : (
-        <Image
+        <img
           src={img.url}
           alt={img.caption}
-          className="object-cover cursor-pointer"
+          className="object-cover cursor-pointer w-[750px] h-[420px]"
           width={750}
           height={420}
-          unoptimized
         />
       )}
       <figcaption className="text-sm text-gray-400 italic">
