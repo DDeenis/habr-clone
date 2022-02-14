@@ -3,9 +3,9 @@ import { FaBookmark, FaChartBar, FaCommentAlt, FaEye } from "react-icons/fa";
 
 interface ArticleStatsProps {
   commentsHref: string;
-  rate: number;
+  rate?: number;
   views: number;
-  marks: number;
+  marks?: number;
   comments: number;
 }
 
@@ -16,29 +16,36 @@ export const ArticleStats = ({
   marks,
   comments,
 }: ArticleStatsProps) => {
+  const isRate = rate !== undefined;
+  const isMarks = marks !== undefined;
+
   return (
     <ul className="flex gap-5 justify-between md:justify-start">
-      <li className="flex gap-2 content-center items-center">
-        <FaChartBar className="w-4 h-4 fill-gray-400" />
-        <span
-          className={classnames("text-sm", {
-            "text-green-400": rate > 0,
-            "text-red-600": rate < 0,
-            "text-gray-400": rate === 0,
-          })}
-        >
-          {rate > 0 && "+"}
-          {rate}
-        </span>
-      </li>
+      {isRate && (
+        <li className="flex gap-2 content-center items-center">
+          <FaChartBar className="w-4 h-4 fill-gray-400" />
+          <span
+            className={classnames("text-sm", {
+              "text-green-400": rate > 0,
+              "text-red-600": rate < 0,
+              "text-gray-400": rate === 0,
+            })}
+          >
+            {rate > 0 && "+"}
+            {rate}
+          </span>
+        </li>
+      )}
       <li className="flex gap-2 content-center items-center">
         <FaEye className="w-4 h-4 fill-gray-400" />
         <span className="text-sm text-gray-400">{views}</span>
       </li>
-      <li className="flex gap-2 content-center items-center cursor-pointer">
-        <FaBookmark className="w-4 h-4 fill-gray-400" />
-        <span className="text-sm text-gray-400">{marks}</span>
-      </li>
+      {isMarks && (
+        <li className="flex gap-2 content-center items-center cursor-pointer">
+          <FaBookmark className="w-4 h-4 fill-gray-400" />
+          <span className="text-sm text-gray-400">{marks}</span>
+        </li>
+      )}
       <li className="cursor-pointer">
         <a
           href={commentsHref}
