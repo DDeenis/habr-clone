@@ -43,7 +43,7 @@ const createArticle = (): ArticleType => {
   return {
     id: faker.datatype.number({ min: 1000, max: 100000 }),
     title: capitalize(title),
-    cut: faker.lorem.paragraph(10),
+    cut: faker.lorem.paragraph(6),
     coverImage: {
       url: faker.image.technics(),
       caption: faker.lorem.sentence(),

@@ -2,11 +2,11 @@ import React from "react";
 
 export const AsideBlock = ({ children }: React.PropsWithChildren<{}>) => {
   return (
-    <aside>
-      <ul className="flex flex-col gap-4 bg-white p-4 box-border h-max lg:max-w-sm">
+    <div>
+      <ul className="flex flex-col gap-4 bg-white py-4 px-6 box-border h-max lg:max-w-sm">
         {children}
       </ul>
-    </aside>
+    </div>
   );
 };
 
@@ -16,7 +16,7 @@ AsideBlock.Element = ({ children }: React.PropsWithChildren<{}>) => (
 
 AsideBlock.Title = ({ children }: React.PropsWithChildren<{}>) => (
   <AsideBlock.Element>
-    <span className="font-medium text-gray-500 uppercase text-sm">
+    <span className="font-medium text-gray-600 uppercase text-[0.8125rem]">
       {children}
     </span>
   </AsideBlock.Element>
