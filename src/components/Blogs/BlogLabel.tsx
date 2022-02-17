@@ -15,7 +15,7 @@ export const BlogLabel: React.FC<{ blogInfo: BlogMinInfo }> = ({
       <div className="flex w-full justify-between items-center pl-2">
         <a
           href={companyHref}
-          className="whitespace-nowrap overflow-hidden text-ellipsis max-w-[25ch]"
+          className="whitespace-nowrap overflow-hidden text-ellipsis max-w-[20ch]"
         >
           <strong className="text-base font-semibold">{blogInfo.name}</strong>
         </a>

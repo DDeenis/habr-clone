@@ -1,5 +1,5 @@
 import { ArticlesPreviewPage } from "@/components/Article/ArticlesPreviewPage";
-import { Aside } from "@/components/common/Aside";
+import { Aside } from "@/components/layout/Aside/Aside";
 import { Header } from "@/components/layout/Header/Header";
 import { useArticles } from "@/hooks/articles";
 import faker from "@faker-js/faker";

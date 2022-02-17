@@ -27,24 +27,24 @@ export const MobileNav = () => {
       <ul>
         {navItems.map((i) => (
           <DropdownItem path={i.path} key={i.path}>
-            <a className="block p-3 box-border">{i.title}</a>
+            <span className="block p-3 box-border">{i.title}</span>
           </DropdownItem>
         ))}
         <DropdownSeparator />
         <DropdownItem path={"/megaprojects"}>
-          <a className="block p-2 box-border">Мегапроекты</a>
+          <span className="block p-2 box-border">Мегапроекты</span>
         </DropdownItem>
         <DropdownSeparator />
         <DropdownItem path={"/sandbox/start"}>
-          <a className="block p-2 box-border">Как стать автором</a>
+          <span className="block p-2 box-border">Как стать автором</span>
         </DropdownItem>
         <DropdownSeparator />
         <DropdownItem path={"/docs/help/rules"}>
-          <a className="block p-2 box-border">Помощь</a>
+          <span className="block p-2 box-border">Помощь</span>
         </DropdownItem>
         <DropdownSeparator />
         <DropdownItem path={"/feedback"}>
-          <a className="block p-2 box-border">Техническая поддержка</a>
+          <span className="block p-2 box-border">Техническая поддержка</span>
         </DropdownItem>
       </ul>
     </MobileBottomModal>

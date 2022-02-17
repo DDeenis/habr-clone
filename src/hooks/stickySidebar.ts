@@ -1,13 +1,13 @@
 interface StickySidebarOptions {
-  offsetTop?: number;
-  offsetBottom?: number;
+  offsetTop: number;
+  offsetBottom: number;
 }
 
 // Sticky sidebar logic from:
 // https://github.com/Krzysztof-Antosik/Two-direction-Sticky-Sidebar
 export const useStickySidebar = ({
-  offsetTop = 0,
-  offsetBottom = 0,
+  offsetTop,
+  offsetBottom,
 }: StickySidebarOptions) => {
   const enableSticky = () => {
     const aside = document.querySelector('[data-sticky="true"]') as
@@ -55,11 +55,8 @@ export const useStickySidebar = ({
       asideHeight = aside.offsetHeight;
     };
 
-    window.addEventListener("resize", onResize);
-    document.addEventListener("scroll", onScroll, {
-      capture: true,
-      passive: true,
-    });
+    document.addEventListener("resize", onResize);
+    document.addEventListener("scroll", onScroll);
 
     return () => {
       document.removeEventListener("resize", onResize);
