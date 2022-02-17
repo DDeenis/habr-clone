@@ -5,46 +5,23 @@ import { ReadingNowArticles } from "../Article/ReadingNowArticles";
 import { PopularBlogs } from "../Blogs/PopularBlogs";
 // @ts-ignore
 import trottle from "lodash.throttle";
+import { useStickySidebar } from "@/hooks/stickySidebar";
 
 export const Aside = () => {
   const blogs = useBestBlogs();
   const articles = useArticles();
-
-  const stickTop = "top-0";
-  const stickBottom = "bottom-3";
-  const asideRef = useRef<HTMLDivElement>(null);
-  const [stickStyles, setStickStyles] = useState(stickTop);
-  const isBottom = stickStyles === stickBottom;
+  const stickySidebar = useStickySidebar({ offsetTop: 60, offsetBottom: 12 });
 
   useEffect(() => {
-    const onScroll = trottle(() => {
-      const element = asideRef.current;
+    const unsubscribe = stickySidebar();
 
-      if (!element || !element.offsetParent) return;
-
-      const offset =
-        element.getBoundingClientRect().top -
-        element.offsetParent.getBoundingClientRect().top;
-      const top = window.pageYOffset + window.innerHeight - offset;
-
-      if (element.scrollHeight - top <= 0) {
-        if (stickStyles == stickTop) {
-          setStickStyles(stickBottom);
-        }
-      } else {
-        setStickStyles(stickTop);
-      }
-    }, 100);
-
-    document.addEventListener("scroll", onScroll);
-
-    return () => document.removeEventListener("scroll", onScroll);
+    return () => unsubscribe?.();
   }, []);
 
   return (
     <aside
-      className={`flex-col gap-3 hidden self-start lg:flex sticky ${stickStyles}`}
-      ref={asideRef}
+      className="hidden lg:flex flex-col gap-3 h-max lg:max-w-sm sticky"
+      data-sticky="true"
     >
       <PopularBlogs blogs={blogs} />
       <ReadingNowArticles articles={articles.slice(5)} />
