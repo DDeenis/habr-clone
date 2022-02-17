@@ -1,10 +1,8 @@
 import { useArticles } from "@/hooks/articles";
 import { useBestBlogs } from "@/hooks/blogs";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import { ReadingNowArticles } from "../Article/ReadingNowArticles";
 import { PopularBlogs } from "../Blogs/PopularBlogs";
-// @ts-ignore
-import trottle from "lodash.throttle";
 import { useStickySidebar } from "@/hooks/stickySidebar";
 
 export const Aside = () => {
