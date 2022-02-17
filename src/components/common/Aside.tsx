@@ -26,7 +26,6 @@ export const Aside = () => {
         element.getBoundingClientRect().top -
         element.offsetParent.getBoundingClientRect().top;
       const top = window.pageYOffset + window.innerHeight - offset;
-      console.log(element.scrollHeight, top, element.clientHeight);
 
       if (element.scrollHeight - top <= 0) {
         if (stickStyles == stickTop) {
