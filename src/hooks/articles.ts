@@ -2,11 +2,12 @@ import { capitalize } from "../helpers/stringUtils";
 import faker from "@faker-js/faker";
 import { ArticleType, ArticleTag } from "../types/articles";
 import { createUser } from "./user";
+import { isBefore } from "date-fns";
 
 interface UseArticlesOptions {
   page?: number;
   pageSize?: number;
-  _unpaged?: boolean;
+  unpaged?: boolean;
 }
 
 const articles = new Map<number, ArticleType[]>();
@@ -16,10 +17,11 @@ export const useArticles = (options?: UseArticlesOptions): ArticleType[] => {
   const page = options?.page ? (options.page > 0 ? options.page : 1) : 1;
   const savedArticles = articles.get(page);
 
-  if (options?._unpaged) {
+  if (options?.unpaged) {
     const newArticles = Array(pageSize)
       .fill(0)
-      .map(() => createArticle());
+      .map(() => createArticle())
+      .sort((f, s) => (isBefore(f.publishedAt, s.publishedAt) ? 1 : -1));
     return newArticles;
   }
 
@@ -29,7 +31,8 @@ export const useArticles = (options?: UseArticlesOptions): ArticleType[] => {
 
   const newArticles = Array(pageSize)
     .fill(0)
-    .map(() => createArticle());
+    .map(() => createArticle())
+    .sort((f, s) => (isBefore(f.publishedAt, s.publishedAt) ? 1 : -1));
   articles.set(page, newArticles);
 
   return newArticles;
@@ -51,7 +54,7 @@ const createArticle = (): ArticleType => {
     tags: generateTags(),
     author: createUser(),
     buttonText: capitalize(faker.word.verb()),
-    publishedAt: faker.date.past(),
+    publishedAt: faker.date.recent(),
     rate,
     views: viwes,
     marks: faker.datatype.number({ min: 0, max: Math.abs(rate) }),

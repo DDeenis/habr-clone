@@ -6,7 +6,7 @@ import { ArticlePreviewTitle } from "./components/ArticlePreviewTitle";
 import { ArticleReadButton } from "./components/ArticleReadButton";
 import { ArticleStats } from "./components/ArticleStats";
 import { Avatar } from "../common/Avatar";
-import { formatDistance } from "date-fns";
+import { formatDistanceToNow, formatRelative } from "date-fns";
 import { ru } from "date-fns/locale";
 
 interface ArticlePreviewProps {
@@ -16,7 +16,7 @@ interface ArticlePreviewProps {
 export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ article }) => {
   const articleLink = `/posts/${article.id}`;
   const commentsLink = articleLink + "/comments";
-  const dateFormatted = formatDistance(article.publishedAt, Date.now(), {
+  const dateFormatted = formatRelative(article.publishedAt, Date.now(), {
     locale: ru,
   });
 
@@ -32,7 +32,7 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ article }) => {
             {article.author.username}
           </span>
         </a>
-        <span className="text-sm text-gray-400">{dateFormatted} назад</span>
+        <span className="text-sm text-gray-400">{dateFormatted}</span>
       </div>
       <ArticlePreviewTitle href={articleLink}>
         {article.title}
