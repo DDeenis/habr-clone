@@ -1,14 +1,27 @@
+import { classnames } from "@/helpers/attributes";
 import React from "react";
+
+interface Props {
+  href: string;
+  variant?: "primary" | "secondary";
+}
 
 export const ArticlePreviewTitle = ({
   children,
   href,
-}: React.PropsWithChildren<{ href: string }>) => {
+  variant = "primary",
+}: React.PropsWithChildren<Props>) => {
   return (
     <h1>
       <a
         href={href}
-        className="font-semibold font-sans text-xl hover:text-blue-400 transition-colors"
+        className={classnames(
+          "font-semibold font-sans hover:text-blue-400 transition-colors",
+          {
+            "text-xl": variant === "primary",
+            "text-lg": variant === "secondary",
+          }
+        )}
       >
         {children}
       </a>

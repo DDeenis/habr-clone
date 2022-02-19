@@ -51,7 +51,7 @@ const createArticle = (): ArticleType => {
     tags: generateTags(),
     author: createUser(),
     buttonText: capitalize(faker.word.verb()),
-    publishedAt: faker.date.past().toISOString(),
+    publishedAt: faker.date.past(),
     rate,
     views: viwes,
     marks: faker.datatype.number({ min: 0, max: Math.abs(rate) }),
