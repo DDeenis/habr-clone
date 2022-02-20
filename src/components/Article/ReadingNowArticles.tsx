@@ -18,7 +18,7 @@ export const ReadingNowArticles = ({ articles }: Props) => {
             <div className="flex flex-col gap-3">
               <a
                 href={`/post/${a.id}`}
-                className="text-sm font-medium hover:text-blue-400 transition-colors"
+                className="text-sm font-semibold hover:text-blue-400 transition-colors"
               >
                 {a.title}
               </a>

@@ -8,8 +8,11 @@ export const AsideBlock = ({ children }: React.PropsWithChildren<{}>) => {
   );
 };
 
-AsideBlock.Element = ({ children }: React.PropsWithChildren<{}>) => (
-  <li>{children}</li>
+AsideBlock.Element = ({
+  children,
+  className,
+}: React.PropsWithChildren<{ className?: string }>) => (
+  <li className={className}>{children}</li>
 );
 
 AsideBlock.Title = ({ children }: React.PropsWithChildren<{}>) => (

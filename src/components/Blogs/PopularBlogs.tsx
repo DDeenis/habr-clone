@@ -9,7 +9,7 @@ export const PopularBlogs: React.FC<{ blogs: BlogMinInfo[] }> = ({ blogs }) => {
       <AsideBlock.Title>Лучшие блоги</AsideBlock.Title>
       <AsideBlock.Separator />
       {blogs.map((b) => (
-        <AsideBlock.Element key={b.name}>
+        <AsideBlock.Element className="py-1" key={b.name}>
           <BlogLabel blogInfo={b} />
         </AsideBlock.Element>
       ))}

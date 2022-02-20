@@ -17,7 +17,7 @@ export const Aside = () => {
         data-sticky="true"
       >
         <PopularBlogs blogs={blogs} />
-        <ReadingNowArticles articles={articles.slice(5)} />
+        <ReadingNowArticles articles={articles.slice(4)} />
       </div>
     </StickySidebar>
   );
