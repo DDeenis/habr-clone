@@ -4,7 +4,7 @@ import React from "react";
 interface AvatarProps {
   image: string;
   className?: string;
-  size?: "md" | "sm";
+  size?: "md" | "sm" | "lg";
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
@@ -20,8 +20,9 @@ export const Avatar: React.FC<AvatarProps> = ({
         "rounded-sm border-[1px] border-solid border-gray-400",
         className,
         {
-          "w-8 h-8": size === "md",
           "w-6 h-6": size === "sm",
+          "w-8 h-8": size === "md",
+          "w-9 h-9": size === "lg",
         }
       )}
       onClick={onClick}

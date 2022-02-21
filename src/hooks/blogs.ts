@@ -23,10 +23,9 @@ const createBlog = (): BlogMinInfo => {
     name,
     alias: name.toLowerCase().replaceAll(" ", "-"),
     avatar: faker.image.business(),
-    rate: faker.datatype.float({
+    rate: faker.datatype.number({
       min: 300,
       max: 6000,
-      precision: 2,
     }),
   };
 };

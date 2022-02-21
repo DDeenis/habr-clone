@@ -13,7 +13,7 @@ export const Aside = () => {
   return (
     <StickySidebar offsetTop={60} offsetBottom={12}>
       <div
-        className="hidden lg:flex flex-col gap-3 h-max lg:max-w-[300px] sticky"
+        className="hidden lg:flex flex-col gap-3 h-max lg:w-[300px] sticky"
         data-sticky="true"
       >
         <PopularBlogs blogs={blogs} />

@@ -10,16 +10,18 @@ export const BlogLabel: React.FC<{ blogInfo: BlogMinInfo }> = ({
   return (
     <div className="flex justify-center items-center">
       <a href={companyHref}>
-        <Avatar image={blogInfo.avatar} />
+        <Avatar image={blogInfo.avatar} size="lg" />
       </a>
       <div className="flex w-full justify-between items-center pl-2">
         <a
           href={companyHref}
-          className="whitespace-nowrap overflow-hidden text-ellipsis max-w-[20ch]"
+          className="overflow-hidden text-ellipsis break-words max-w-[18ch]" // whitespace-nowrap
         >
-          <strong className="text-base font-semibold">{blogInfo.name}</strong>
+          <strong className="text-[0.8125rem] font-semibold">
+            {blogInfo.name}
+          </strong>
         </a>
-        <span className="text-base font-semibold text-purple-500 pl-1">
+        <span className="text-[0.8125rem] font-semibold text-pink-500 pl-1">
           {blogInfo.rate}
         </span>
       </div>
