@@ -21,3 +21,12 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.scroll-top-btn svg {
+  @apply fill-gray-400;
+  @apply transition-colors;
+}
+
+.scroll-top-btn:hover svg {
+  @apply fill-gray-600;
+}

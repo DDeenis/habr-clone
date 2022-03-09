@@ -12,7 +12,7 @@ export const ArticlePreviewTitle = ({
   variant = "primary",
 }: React.PropsWithChildren<Props>) => {
   return (
-    <h1>
+    <h2>
       <a
         href={href}
         className={classnames(
@@ -25,6 +25,6 @@ export const ArticlePreviewTitle = ({
       >
         {children}
       </a>
-    </h1>
+    </h2>
   );
 };

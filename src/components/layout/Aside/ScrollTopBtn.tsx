@@ -23,10 +23,10 @@ export const ScrollTopBtn = () => {
 
   return isVisible ? (
     <button
-      className="hidden xl:block fixed top-0 h-screen px-5 hover:bg-gray-200 transition-colors"
+      className="hidden xl:block fixed top-0 h-screen px-5 hover:bg-gray-300/50 transition-colors duration-300 scroll-top-btn"
       onClick={scrollTop}
     >
-      <FaChevronCircleUp className="w-7 h-7 fill-gray-400" />
+      <FaChevronCircleUp className="w-7 h-7" />
     </button>
   ) : null;
 };
