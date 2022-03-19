@@ -13,14 +13,14 @@ const Home = () => {
   const user = useUser();
 
   return (
-    <main className="bg-gray-100 min-h-screen">
+    <main className="bg-gray-100 min-h-screen isolate">
       <Header user={user} />
-      <div className="flex gap-4 justify-between mx-auto px-3 py-4 xl:px-0 w-full max-w-[1096px] relative">
+      <div className="flex gap-4 justify-between mx-auto px-3 py-4 xl:px-0 w-full max-w-[1096px] relative -z-10">
         <UserFeed articles={articles} />
         <Aside />
+        <ScrollTopBtn />
       </div>
       <Footer username={user.username} />
-      <ScrollTopBtn />
     </main>
   );
 };

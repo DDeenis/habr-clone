@@ -23,10 +23,10 @@ a {
 }
 
 .scroll-top-btn svg {
-  @apply fill-gray-400;
+  @apply text-gray-400;
   @apply transition-colors;
 }
 
 .scroll-top-btn:hover svg {
-  @apply fill-gray-600;
+  @apply text-gray-600;
 }
