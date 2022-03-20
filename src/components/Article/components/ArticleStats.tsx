@@ -1,5 +1,9 @@
 import { classnames } from "@/helpers/attributes";
 import { FaBookmark, FaChartBar, FaCommentAlt, FaEye } from "react-icons/fa";
+import { Comments } from "./stats/Comments";
+import { Marks } from "./stats/Marks";
+import { Rate } from "./stats/Rate";
+import { Views } from "./stats/Views";
 
 interface ArticleStatsProps {
   commentsHref: string;
@@ -22,38 +26,20 @@ export const ArticleStats = ({
   return (
     <ul className="flex gap-5 justify-between md:justify-start">
       {isRate && (
-        <li className="flex gap-2 content-center items-center">
-          <FaChartBar className="w-4 h-4 fill-gray-400" />
-          <span
-            className={classnames("text-sm", {
-              "text-green-400": rate > 0,
-              "text-red-600": rate < 0,
-              "text-gray-400": rate === 0,
-            })}
-          >
-            {rate > 0 && "+"}
-            {rate}
-          </span>
+        <li>
+          <Rate value={rate} />
         </li>
       )}
-      <li className="flex gap-2 content-center items-center">
-        <FaEye className="w-4 h-4 fill-gray-400" />
-        <span className="text-sm text-gray-400">{views}</span>
+      <li>
+        <Views value={views} />
       </li>
       {isMarks && (
-        <li className="flex gap-2 content-center items-center cursor-pointer">
-          <FaBookmark className="w-4 h-4 fill-gray-400" />
-          <span className="text-sm text-gray-400">{marks}</span>
+        <li>
+          <Marks value={marks} />
         </li>
       )}
-      <li className="cursor-pointer">
-        <a
-          href={commentsHref}
-          className="flex gap-2 content-center items-center"
-        >
-          <FaCommentAlt className="w-4 h-4 fill-gray-400" />
-          <span className="text-sm text-gray-400">{comments}</span>
-        </a>
+      <li>
+        <Comments value={comments} href={commentsHref} />
       </li>
     </ul>
   );
