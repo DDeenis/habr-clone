@@ -1,5 +1,3 @@
-import { classnames } from "@/helpers/attributes";
-import { FaBookmark, FaChartBar, FaCommentAlt, FaEye } from "react-icons/fa";
 import { Comments } from "./stats/Comments";
 import { Marks } from "./stats/Marks";
 import { Rate } from "./stats/Rate";

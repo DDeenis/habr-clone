@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { FaChevronCircleUp } from "react-icons/fa";
 import { CgChevronUpO } from "react-icons/cg";
 
 export const ScrollTopBtn = () => {
@@ -23,7 +22,7 @@ export const ScrollTopBtn = () => {
 
   return isVisible ? (
     <button
-      className="hidden xl:block fixed top-0 left-0 h-screen px-5 hover:bg-gray-300/50 transition-colors duration-300 scroll-top-btn"
+      className="hidden xl:block fixed top-0 left-0 h-screen px-5 hover:bg-gray-300/50 transition-colors duration-300 scroll-top-btn z-0"
       onClick={scrollTop}
     >
       <CgChevronUpO className="w-7 h-7" />

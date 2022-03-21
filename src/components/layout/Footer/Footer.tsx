@@ -4,7 +4,6 @@ import {
   footerServices,
   getFooterYourAccount,
 } from "@/helpers/footerEntries";
-import React from "react";
 import { FooterEntry } from "./FooterEntry";
 
 type Props = {
