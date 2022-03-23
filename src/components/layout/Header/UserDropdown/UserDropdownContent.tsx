@@ -3,6 +3,7 @@ import React from "react";
 import { FaClipboardList, FaCog, FaSignOutAlt } from "react-icons/fa";
 import { User } from "@/types/user";
 import { DropdownItem, DropdownSeparator } from "./dropdownComponents";
+import { Link } from "react-router-dom";
 
 interface UserDropdownContentProps {
   user: User;
@@ -14,13 +15,13 @@ export const UserDropdownContent: React.FC<UserDropdownContentProps> = ({
   return (
     <>
       <div className="p-4 box-border bg-gray-50">
-        <a
-          href={`/users/${user.username}`}
+        <Link
+          to={`/users/${user.username}`}
           className="flex gap-3 items-center w-max"
         >
           <Avatar image={user.avatar} />
           <span className="text-blue-400">@{user.username}</span>
-        </a>
+        </Link>
       </div>
       <DropdownSeparator inList={false} />
       <ul>

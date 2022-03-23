@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 
-type Props = {};
+type Props = null;
 
 export const Head = ({ children }: React.PropsWithChildren<Props>) => {
   const head = document.querySelector("head");

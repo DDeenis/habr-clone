@@ -1,5 +1,6 @@
 import { classnames } from "@/helpers/attributes";
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface Props {
   href: string;
@@ -13,8 +14,8 @@ export const ArticlePreviewTitle = ({
 }: React.PropsWithChildren<Props>) => {
   return (
     <h2>
-      <a
-        href={href}
+      <Link
+        to={href}
         className={classnames(
           "font-semibold font-sans hover:text-blue-400 transition-colors",
           {
@@ -24,7 +25,7 @@ export const ArticlePreviewTitle = ({
         )}
       >
         {children}
-      </a>
+      </Link>
     </h2>
   );
 };

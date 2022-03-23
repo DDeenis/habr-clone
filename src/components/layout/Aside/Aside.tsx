@@ -1,9 +1,7 @@
 import { useArticles } from "@/hooks/articles";
 import { useBestBlogs } from "@/hooks/blogs";
-import { useEffect } from "react";
 import { ReadingNowArticles } from "../../Article/ReadingNowArticles";
 import { PopularBlogs } from "../../Blogs/PopularBlogs";
-import { useStickySidebar } from "@/hooks/stickySidebar";
 import { StickySidebar } from "@/components/common/StickySidebar";
 
 export const Aside = () => {

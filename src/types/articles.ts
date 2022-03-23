@@ -11,7 +11,7 @@ export interface ArticleImage {
 }
 
 export interface ArticleType {
-  id: number;
+  id: string;
   title: string;
   tags: ArticleTag[];
   cut: string;

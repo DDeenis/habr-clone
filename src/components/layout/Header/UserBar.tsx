@@ -3,13 +3,11 @@ import { FaSearch, FaBell, FaPencilAlt } from "react-icons/fa";
 import { User } from "@/types/user";
 import { UserDropdown } from "./UserDropdown/UserDropdown";
 import { Icon } from "@/components/common/Icon";
+import { Link } from "react-router-dom";
 
 interface UserBarProps {
   user: User;
 }
-
-// const iconClass =
-//   "fill-gray-400 hover:fill-blue-500 transition-colors w-5 h-5 cursor-pointer";
 
 export const UserBar: React.FC<UserBarProps> = ({ user }) => {
   return (
@@ -33,9 +31,9 @@ export const UserBarIcon: React.FC<UserBarIconProps> = ({ icon, path }) => {
   return (
     <li className="flex content-center items-center">
       {path ? (
-        <a href={path}>
+        <Link to={path}>
           <Icon icon={icon} />
-        </a>
+        </Link>
       ) : (
         <Icon icon={icon} />
       )}

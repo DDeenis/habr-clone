@@ -2,6 +2,7 @@ import React from "react";
 import { BlogMinInfo } from "@/types/blogs";
 import { AsideBlock } from "../common/AsideBlock";
 import { BlogLabel } from "./BlogLabel";
+import { Link } from "react-router-dom";
 
 export const PopularBlogs: React.FC<{ blogs: BlogMinInfo[] }> = ({ blogs }) => {
   return (
@@ -15,9 +16,9 @@ export const PopularBlogs: React.FC<{ blogs: BlogMinInfo[] }> = ({ blogs }) => {
       ))}
       <AsideBlock.Separator />
       <AsideBlock.Element>
-        <a href={"/companies"} className="font-medium text-blue-400 text-sm">
+        <Link to={"/companies"} className="font-medium text-blue-400 text-sm">
           Все компании
-        </a>
+        </Link>
       </AsideBlock.Element>
     </AsideBlock>
   );

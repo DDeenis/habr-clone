@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 
 const PRESERVED = import.meta.globEager("/src/pages/(_app|404).tsx");
 const ROUTES = import.meta.globEager("/src/pages/**/[[a-z]*.tsx");
-console.log(import.meta.globEager("/src/pages/**/[[a-z]*.tsx"), ROUTES);
 
 const preserve: Record<string, React.ElementType | undefined> = Object.keys(
   PRESERVED

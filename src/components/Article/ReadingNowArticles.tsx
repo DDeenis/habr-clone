@@ -1,5 +1,6 @@
 import { ArticleType } from "@/types/articles";
 import React from "react";
+import { Link } from "react-router-dom";
 import { AsideBlock } from "../common/AsideBlock";
 import { ArticleStats } from "./components/ArticleStats";
 
@@ -16,12 +17,12 @@ export const ReadingNowArticles = ({ articles }: Props) => {
           <AsideBlock.Separator />
           <AsideBlock.Element>
             <div className="flex flex-col gap-3">
-              <a
-                href={`/post/${a.id}`}
+              <Link
+                to={`/post/${a.id}`}
                 className="text-sm font-semibold hover:text-blue-400 transition-colors"
               >
                 {a.title}
-              </a>
+              </Link>
               <ArticleStats
                 views={a.views}
                 comments={a.comments}

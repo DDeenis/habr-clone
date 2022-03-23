@@ -1,4 +1,3 @@
-import { useUser } from "@/hooks/user";
 import { User } from "@/types/user";
 import { MainNav } from "./Nav/MainNav";
 import { UserBar } from "./UserBar";

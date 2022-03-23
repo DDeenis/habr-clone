@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface Props {
   title: string;
@@ -13,12 +14,12 @@ export const FooterEntry: React.FC<Props> = ({ title, entries }) => {
       <ul className="flex flex-col gap-1">
         {entries.map((e) => (
           <li key={e.title}>
-            <a
-              href={e.href}
+            <Link
+              to={e.href}
               className="text-white text-[0.8125rem] hover:opacity-60 transition-opacity"
             >
               {e.title}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
