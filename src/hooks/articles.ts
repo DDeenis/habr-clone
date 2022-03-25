@@ -32,15 +32,9 @@ export const useArticles = (options?: UseArticlesOptions): ArticleType[] => {
 export const useArticle = (id?: string): ArticleType | undefined => {
   if (!id) return;
 
-  console.log("a?", articles);
   for (const elem of articles) {
-    console.log("b?");
-    const [_, pageArticles] = elem;
-    console.log(pageArticles);
-
+    const pageArticles = elem[1];
     for (const article of pageArticles) {
-      console.log(article.id + " " + id);
-
       if (article.id === id) return article;
     }
   }
