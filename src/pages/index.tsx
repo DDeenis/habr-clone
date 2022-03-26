@@ -1,19 +1,12 @@
-import { MainContainer } from "@/components/common/MainContainer";
-import { UserFeed } from "@/components/Feed/UserFeed";
-import { Aside } from "@/components/layout/Aside/Aside";
-import { useArticles } from "@/hooks/articles";
-import faker from "@faker-js/faker";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  faker.locale = "ru";
-  const articles = useArticles();
+  const redirect = useNavigate();
 
-  return (
-    <MainContainer className="flex gap-4 justify-between px-3 py-4 xl:px-0 relative">
-      <UserFeed articles={articles} />
-      <Aside />
-    </MainContainer>
-  );
+  useEffect(() => redirect("/feed"), []);
+
+  return <div></div>;
 };
 
 export default Home;
