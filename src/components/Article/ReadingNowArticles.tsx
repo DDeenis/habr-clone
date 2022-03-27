@@ -1,11 +1,11 @@
-import { ArticleType } from "@/types/articles";
+import { ArticlePrewiewType } from "@/types/articles";
 import React from "react";
 import { Link } from "react-router-dom";
 import { AsideBlock } from "../common/AsideBlock";
 import { ArticleStats } from "./components/ArticleStats";
 
 type Props = {
-  articles: ArticleType[];
+  articles: ArticlePrewiewType[];
 };
 
 export const ReadingNowArticles = ({ articles }: Props) => {

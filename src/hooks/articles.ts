@@ -1,6 +1,6 @@
 import { capitalize } from "../helpers/stringUtils";
 import faker from "@faker-js/faker";
-import { ArticleType, ArticleTag } from "../types/articles";
+import { ArticlePrewiewType, ArticleTag } from "../types/articles";
 import { createUser } from "./user";
 import { isBefore } from "date-fns";
 
@@ -9,9 +9,11 @@ interface UseArticlesOptions {
   pageSize?: number;
 }
 
-const articles = new Map<number, ArticleType[]>();
+const articles = new Map<number, ArticlePrewiewType[]>();
 
-export const useArticles = (options?: UseArticlesOptions): ArticleType[] => {
+export const useArticles = (
+  options?: UseArticlesOptions
+): ArticlePrewiewType[] => {
   const pageSize = options?.pageSize ?? 10;
   const page = options?.page ? (options.page > 0 ? options.page : 1) : 1;
   const savedArticles = articles.get(page);
@@ -29,7 +31,7 @@ export const useArticles = (options?: UseArticlesOptions): ArticleType[] => {
   return newArticles;
 };
 
-export const useArticle = (id?: string): ArticleType | undefined => {
+export const useArticle = (id?: string): ArticlePrewiewType | undefined => {
   if (!id) return;
 
   for (const elem of articles) {
@@ -40,7 +42,7 @@ export const useArticle = (id?: string): ArticleType | undefined => {
   }
 };
 
-const createArticle = (): ArticleType => {
+const createArticle = (): ArticlePrewiewType => {
   const rate = faker.datatype.number({ min: -50, max: 100 });
   const viwes = faker.datatype.number({ min: 0, max: 5000 });
   const title = faker.hacker.phrase();

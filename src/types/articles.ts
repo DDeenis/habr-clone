@@ -5,12 +5,22 @@ export interface ArticleTag {
   path: string;
 }
 
-export interface ArticleImage {
+export interface ArticleImageType {
   url: string;
   caption?: string;
 }
 
-export interface ArticleType {
+export interface ArticleCommentType {
+  id: string;
+  user: User;
+  publishDate: Date;
+  content: string;
+  rate: number;
+  isSeen: boolean;
+  isBookmarked: boolean;
+}
+
+export interface ArticlePrewiewType {
   id: string;
   title: string;
   tags: ArticleTag[];
@@ -20,8 +30,14 @@ export interface ArticleType {
   rate: number;
   views: number;
   marks: number;
-  // Comment[]
   comments: number;
   buttonText?: string;
-  coverImage?: ArticleImage;
+  coverImage?: ArticleImageType;
+}
+
+export interface ArticleType
+  extends Omit<ArticlePrewiewType, "buttonText" | "comments" | "cut"> {
+  // rich text
+  content: string;
+  comments: ArticleCommentType[];
 }

@@ -1,4 +1,4 @@
-import { ArticleType } from "@/types/articles";
+import { ArticlePrewiewType } from "@/types/articles";
 import { formatRelative } from "date-fns";
 import { ru } from "date-fns/locale";
 import { FaCommentAlt } from "react-icons/fa";
@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { ArticlePreviewTitle } from "../Article/components/ArticlePreviewTitle";
 
 interface Props {
-  articles: ArticleType[];
+  articles: ArticlePrewiewType[];
 }
 
 export const FeedNews = ({ articles }: Props) => {

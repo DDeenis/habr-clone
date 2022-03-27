@@ -1,10 +1,10 @@
 import React from "react";
-import { ArticleType } from "@/types/articles";
+import { ArticlePrewiewType } from "@/types/articles";
 import { ArticlePreview } from "../Article/ArticlePreview";
 import { FeedNews } from "./FeedNews";
 import { FeedHeader } from "./FeedHeader";
 
-export const UserFeed: React.FC<{ articles: ArticleType[] }> = ({
+export const UserFeed: React.FC<{ articles: ArticlePrewiewType[] }> = ({
   articles,
 }) => {
   const firstArticle = articles[0];

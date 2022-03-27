@@ -1,5 +1,5 @@
 import React from "react";
-import { ArticleType } from "@/types/articles";
+import { ArticlePrewiewType } from "@/types/articles";
 import { ArticleTags } from "./ArticleTags";
 import { CoverImage } from "./components/CoverImage";
 import { ArticlePreviewTitle } from "./components/ArticlePreviewTitle";
@@ -8,7 +8,7 @@ import { ArticleStats } from "./components/ArticleStats";
 import { ArticleUserInfo } from "./components/ArticleUserInfo";
 
 interface ArticlePreviewProps {
-  article: ArticleType;
+  article: ArticlePrewiewType;
 }
 
 export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ article }) => {

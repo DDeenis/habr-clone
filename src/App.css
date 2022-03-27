@@ -30,3 +30,7 @@ a {
 .scroll-top-btn:hover svg {
   @apply text-gray-600;
 }
+
+.article-tag:not(:last-child)::after {
+  content: ",";
+}

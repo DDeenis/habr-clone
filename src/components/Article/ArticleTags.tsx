@@ -10,10 +10,10 @@ export const ArticleTags: React.FC<ArticleTagsProps> = ({ tags }) => {
   return (
     <ul className="gap-2 hidden md:flex">
       {tags.map((t) => (
-        <li key={t.label} className="cursor-pointer">
+        <li key={t.label} className="cursor-pointer text-gray-500 article-tag">
           <Link
             to={t.path}
-            className="text-gray-400 text-sm hover:text-blue-300 transition-colors"
+            className="text-[0.8125rem] hover:text-blue-300 transition-colors"
           >
             {t.label}
           </Link>

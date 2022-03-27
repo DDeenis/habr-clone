@@ -1,4 +1,4 @@
-import { ArticleUserInfo } from "@/components/Article/components/ArticleUserInfo";
+import { Article } from "@/components/Article/Article";
 import { MainContainer } from "@/components/common/MainContainer";
 import { useArticle } from "@/hooks/articles";
 import React from "react";
@@ -14,10 +14,7 @@ const ArticlePageContainer = () => {
 
   return (
     <MainContainer className="bg-white my-8">
-      <ArticleUserInfo
-        user={article.author}
-        publishedAt={article.publishedAt}
-      />
+      <Article article={article} />
     </MainContainer>
   );
 };

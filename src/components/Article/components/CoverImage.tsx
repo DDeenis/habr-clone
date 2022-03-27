@@ -1,8 +1,8 @@
-import { ArticleImage } from "@/types/articles";
+import { ArticleImageType } from "@/types/articles";
 import { Link } from "react-router-dom";
 
 interface CoverImageProps {
-  img?: ArticleImage;
+  img?: ArticleImageType;
   href?: string;
 }
 
